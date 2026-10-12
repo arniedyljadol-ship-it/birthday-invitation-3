@@ -1,0 +1,355 @@
+/* =========================================================
+   VAN ACCEL'S BIRTHDAY INVITATION — SENIOR'S INNER CIRCLE
+   Stylesheet: style.css
+========================================================= */
+
+:root {
+  --bg-color: #0c0a14;
+  --card-bg: rgba(22, 17, 36, 0.85);
+  --gold-primary: #f59e0b;
+  --gold-glow: #fbbf24;
+  --purple-accent: #9333ea;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-light: rgba(245, 158, 11, 0.25);
+  --font-serif: 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 10% 15%, rgba(147, 51, 234, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 85%, rgba(245, 158, 11, 0.12) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+/* Ambient Background Orbs */
+.ambient-glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-1 {
+  width: 450px;
+  height: 450px;
+  background: rgba(245, 158, 11, 0.12);
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.glow-2 {
+  width: 350px;
+  height: 350px;
+  background: rgba(147, 51, 234, 0.15);
+  bottom: 50px;
+  right: -50px;
+}
+
+/* Main Layout */
+.page-container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Card */
+.header-card {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.squad-badge {
+  display: inline-block;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid var(--border-light);
+  color: var(--gold-glow);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+}
+
+.main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.main-title .highlight {
+  background: linear-gradient(135deg, #ffffff 20%, var(--gold-glow) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Funny Late Disclaimer Box */
+.funny-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 14px;
+  padding: 1.1rem 1.4rem;
+  text-align: left;
+  max-width: 650px;
+  margin: 0 auto;
+  backdrop-filter: blur(8px);
+}
+
+.disclaimer-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.disclaimer-text {
+  font-size: 0.95rem;
+  color: #fed7aa;
+}
+
+.disclaimer-text strong {
+  color: #fff;
+}
+
+/* Polaroid Photo Card */
+.photo-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.polaroid-frame {
+  background: #ffffff;
+  padding: 14px 14px 22px;
+  border-radius: 12px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(245, 158, 11, 0.2);
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s ease;
+  max-width: 480px;
+  width: 100%;
+}
+
+.polaroid-frame:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.photo-wrapper {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #111;
+}
+
+.squad-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.polaroid-caption {
+  text-align: center;
+  padding-top: 14px;
+  color: #1e1b4b;
+}
+
+.polaroid-caption span {
+  font-family: var(--font-handwriting);
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: block;
+  line-height: 1.1;
+}
+
+.polaroid-caption small {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Dinner Details Card */
+.dinner-details-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.card-eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 2.5px;
+  font-weight: 800;
+  color: var(--gold-glow);
+  margin-bottom: 0.4rem;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  margin-bottom: 0.8rem;
+  color: #fff;
+}
+
+.invite-msg {
+  color: var(--text-muted);
+  max-width: 580px;
+  margin: 0 auto 2.2rem;
+  font-size: 0.98rem;
+}
+
+/* Grid of Details */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.1rem;
+  border-radius: 14px;
+}
+
+.detail-item .icon {
+  font-size: 1.8rem;
+}
+
+.detail-item h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.detail-item p {
+  color: #fff;
+  font-size: 1.05rem;
+  margin: 2px 0;
+}
+
+.detail-item .subtext {
+  font-size: 0.8rem;
+  color: var(--gold-glow);
+}
+
+/* Actions / Buttons */
+.actions-area {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.btn {
+  padding: 0.95rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+}
+
+.btn-accept {
+  background: linear-gradient(135deg, var(--gold-primary), #d97706);
+  color: #000;
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+}
+
+.btn-accept:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.6);
+}
+
+.btn-decline {
+  background: rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.9rem;
+}
+
+/* RSVP Feedback box */
+.rsvp-feedback {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #86efac;
+  padding: 1.2rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  animation: fadeIn 0.4s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Squad Footer */
+.squad-footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.footer-squad-title {
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--gold-glow);
+  letter-spacing: 1.5px;
+  margin-top: 4px;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 600px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+  .dinner-details-card {
+    padding: 1.8rem 1.2rem;
+  }
+}
