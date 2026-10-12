@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Van Accel! | Senior’s Inner Circle</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Canvas Confetti Library for Celebrations -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Ambient Glows -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <main class="page-container">
+    
+    <!-- Hero / Greeting Header -->
+    <header class="header-card">
+      <div class="squad-badge">👑 SENIOR’S INNER CIRCLE PRESENTS</div>
+      <h1 class="main-title">Happy Birthday, <span class="highlight">Van Accel!</span> 🎂</h1>
+      
+      <!-- The Late Celebration Notice -->
+      <div class="funny-disclaimer">
+        <div class="disclaimer-icon">⚠️</div>
+        <div class="disclaimer-text">
+          <strong>Official Circle Memo:</strong> Yes, this dinner celebration is technically <em>one day late</em>... but only because someone had conflicting VIP date plans with his girlfriend! 😉 Since duty called yesterday, Wednesday is squad time.
+        </div>
+      </div>
+    </header>
+
+    <!-- Photo Section -->
+    <section class="photo-section">
+      <div class="polaroid-frame">
+        <div class="photo-wrapper">
+          <!-- Make sure to upload image_2.png into the same GitHub repository -->
+          <img src="image_2.png" alt="Senior's Inner Circle with Van Accel" class="squad-photo" onerror="this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=80'">
+        </div>
+        <div class="polaroid-caption">
+          <span>The Honorees & The Inner Circle ✨</span>
+          <small>Student Honors & Squad Milestones</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Invitation & Dinner Details -->
+    <section class="dinner-details-card">
+      <div class="card-eyebrow">EXCLUSIVE INVITATION</div>
+      <h2 class="section-title">Dinner & Catch-Up at Fev’s Diner</h2>
+      <p class="invite-msg">
+        The table is booked and the squad is gathering. No excuses, no sudden "dates", just good food, endless laughs, and celebrating another year of you!
+      </p>
+
+      <div class="details-grid">
+        <div class="detail-item">
+          <div class="icon">📍</div>
+          <div>
+            <h4>Location</h4>
+            <p><strong>Fev’s Diner</strong></p>
+            <span class="subtext">Good eats & cozy vibes</span>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <div class="icon">🗓️</div>
+          <div>
+            <h4>Date</h4>
+            <p><strong>This Wednesday</strong></p>
+            <span class="subtext">The delayed celebration edition</span>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <div class="icon">⏰</div>
+          <div>
+            <h4>Time</h4>
+            <p><strong>6:30 PM Onwards</strong></p>
+            <span class="subtext">Come hungry!</span>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <div class="icon">👔</div>
+          <div>
+            <h4>Dress Code</h4>
+            <p><strong>Casual & Hungry</strong></p>
+            <span class="subtext">Van Accel's best smile</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action / Interactive Buttons -->
+      <div class="actions-area">
+        <button class="btn btn-accept" onclick="acceptInvite()">
+          🎉 Count Me In! (RSVP)
+        </button>
+        <button class="btn btn-decline" id="btn-no" onmouseover="dodgeButton()" onclick="dodgeButton()">
+          Can't make it 💔
+        </button>
+      </div>
+
+      <!-- Live RSVP Response Message -->
+      <div id="rsvp-status" class="rsvp-feedback hidden">
+        ✨ <strong>Attendance Confirmed!</strong> Senior’s Inner Circle has logged your presence. See you this Wednesday at Fev’s Diner, birthday boy! 🥳
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="squad-footer">
+      <p>Signed with love & banter,</p>
+      <div class="footer-squad-title">Senior’s Inner Circle 💛</div>
+    </footer>
+
+  </main>
+
+  <script>
+    // Trigger confetti on load
+    window.addEventListener('load', () => {
+      confetti({
+        particleCount: 80,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    });
+
+    // Accept Invite Function
+    function acceptInvite() {
+      const feedback = document.getElementById('rsvp-status');
+      feedback.classList.remove('hidden');
+      
+      // Giant celebratory confetti shower
+      confetti({
+        particleCount: 150,
+        spread: 90,
+        origin: { y: 0.5 }
+      });
+      
+      feedback.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Playful dodge button for "Can't make it"
+    let dodgeCount = 0;
+    const excuses = [
+      "Wait, girlfriend duties again?! 😂",
+      "Option disabled: You MUST attend!",
+      "Error: Senior's Inner Circle will kidnap you! 🚗",
+      "Just click 'Count Me In' already!"
+    ];
+
+    function dodgeButton() {
+      const btn = document.getElementById('btn-no');
+      dodgeCount++;
+      btn.innerText = excuses[dodgeCount % excuses.length];
+      
+      // Slightly shift the button playfully
+      const randomX = (Math.random() - 0.5) * 60;
+      const randomY = (Math.random() - 0.5) * 30;
+      btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    }
+  </script>
+</body>
+</html>
